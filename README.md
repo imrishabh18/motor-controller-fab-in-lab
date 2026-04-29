@@ -10,8 +10,8 @@ This tscircuit project defines a compact carrier board for a single brushed DC m
 - Breakable Male Headers / 90 degree female 0.1in headers: module sockets for the XIAO RP2040 and DRV8833 breakout.
 - Cap 10uF 0805: bulk motor-supply capacitor.
 - Cap 0.1uF 0603: high-frequency motor-supply bypass capacitor.
-- Red LED 1608: power indicator.
-- Resistor Array 4 1206 or an available 0603 resistor: LED current limiting.
+- Red LED 1608: VMOTOR input-power indicator.
+- 2.2k 0603 resistor: LED current limiting.
 
 ## Control wiring
 
@@ -21,6 +21,7 @@ This tscircuit project defines a compact carrier board for a single brushed DC m
 - XIAO D7 / GPIO1 <- DRV8833 FAULT
 - Arduino shield VIN / barrel-jack input -> DRV8833 VMOTOR
 - VMOTOR terminal -> DRV8833 VMOTOR, as an alternate/direct motor supply input
+- VMOTOR -> 2.2k resistor -> red LED -> GND power indicator
 - MOTOR terminal -> DRV8833 AOUT1/AOUT2
 - Arduino shield V5 -> XIAO 5V logic power through `ArduinoShield` `chipProps.connections`
 - Arduino shield GND1 -> common GND through `ArduinoShield` `chipProps.connections`

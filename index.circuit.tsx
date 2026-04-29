@@ -17,7 +17,7 @@ export default () => (
       height: boardHeight,
       minViaHoleDiameter: 1.5,
       minViaPadDiameter: 2.5,
-      minTraceWidth: 0.3
+      minTraceWidth: 0.33
     }}
     chipProps={{
       connections: {
@@ -215,7 +215,7 @@ export default () => (
 
     <resistor
       name="R_PWR"
-      resistance="1k"
+      resistance="2.2k"
       footprint="0603"
       pcbX={-7}
       pcbY={-14}
@@ -256,7 +256,7 @@ export default () => (
     <trace from=".J_MOTOR > .pin1" to=".J_DRV8833_RIGHT > .AOUT1" />
     <trace from=".J_MOTOR > .pin2" to=".J_DRV8833_RIGHT > .AOUT2" />
 
-    <trace from=".J_XIAO_RIGHT > .3V3" to=".R_PWR > .pin1" />
+    <trace from=".R_PWR > .pin1" to="net.VMOTOR" />
     <trace from=".R_PWR > .pin2" to=".D_PWR > .anode" />
   </ArduinoShield>
 )
