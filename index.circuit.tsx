@@ -1,5 +1,4 @@
 import { ArduinoShield } from "@tscircuit/common"
-import { AutoroutingPipelineSolver4 } from "@tscircuit/capacity-autorouter"
 
 const boardWidth = "70mm"
 const boardHeight = "36mm"
@@ -7,19 +6,17 @@ const xiaoRowSpacing = 20
 const xiaoCenterX = -22.38
 const drv8833RowSpacing = 17
 const drv8833CenterX = 8
+const fiducialX = (70 - 4) / 2
+const fiducialY = (100 - 4) / 2
+const fiducialPadDiameter = "1mm"
 
 export default () => (
   <ArduinoShield
     boardProps={{
       width: boardWidth,
       height: boardHeight,
-      minViaHoleDiameter: 1,
-      minViaPadDiameter: 2,
-      // autorouter: {
-      //   algorithmFn: async (simpleRouteJson) => {
-      //     return new AutoroutingPipelineSolver4(simpleRouteJson).
-      //   },
-      // }
+      minViaHoleDiameter: 1.5,
+      minViaPadDiameter: 2.5,
     }}
     chipProps={{
       connections: {
@@ -29,6 +26,31 @@ export default () => (
       },
     }}
   >
+    {/* <hole
+      name="FID1"
+      pcbY={-fiducialX}
+      pcbX={-fiducialY}
+      diameter={fiducialPadDiameter}
+    />
+    <hole
+      name="FID2"
+      pcbY={fiducialX}
+      pcbX={-fiducialY}
+      diameter={fiducialPadDiameter}
+    />
+    <hole
+      name="FID3"
+      pcbY={-fiducialX}
+      pcbX={fiducialY}
+      diameter={fiducialPadDiameter}
+    />
+    <hole
+      name="FID4"
+      pcbY={fiducialX}
+      pcbX={fiducialY}
+      diameter={fiducialPadDiameter}
+    /> */}
+
     <pinheader
       name="J_XIAO_LEFT"
       pinCount={7}
