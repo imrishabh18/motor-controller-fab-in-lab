@@ -17,6 +17,7 @@ export default () => (
       height: boardHeight,
       minViaHoleDiameter: 1.5,
       minViaPadDiameter: 2.5,
+      minTraceWidth: 0.3
     }}
     chipProps={{
       connections: {
